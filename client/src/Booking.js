@@ -13,11 +13,9 @@ const Booking = () => {
         setDate(nextValue);
       }
 
-    
-
     return (
         <>
-        <h1>Booking</h1>
+        <h1>Appointment</h1>
         <Container>
         <Calendar 
         onChange={onChange} 
@@ -30,13 +28,12 @@ const Booking = () => {
                 <p>
                     <span>Start : </span>
                     {date[0].toDateString()}
-                    &nbsp;
-                    &nbsp;
+                    
                     <span>End:</span>{date[1].toDateString()}
                 </p>
                         ) : (
                 <p>
-                    <span>Default selected date:</span>{date.toDateString()}
+                    <span></span>{date.toDateString()}
                 </p> 
             
             )}
@@ -78,6 +75,9 @@ const Container=styled.div`
   background-color: #edfafa;
   border: none;
   text-align:center;
+  &:hover {
+    background-color: #105b72c2;
+  }
 }
 
 .react-calendar__tile--now:enabled:hover,

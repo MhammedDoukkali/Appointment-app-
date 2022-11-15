@@ -1,5 +1,6 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import styled from "styled-components"; 
+import Logo from './Logo'
 
 
 const Login = () => {
@@ -7,7 +8,9 @@ const Login = () => {
 const navigate = useNavigate();
 
     return (
+      <>
         <Wrapper>
+      <Logo/>
       <form onSubmit={(ev) => handleSubmit(ev)}>
         <label>Username</label>
         <input
@@ -24,10 +27,11 @@ const navigate = useNavigate();
         //   value={state.passWord}
         //   onChange={(ev) => handleChange(ev, "passWord")}
         />
-        <button type="submit">Log In</button>
+        <Button type="submit" onClick={()=>navigate("/booking")}>Sign in</Button>
         <div>Not a member ? <Buzz onClick={()=>navigate("/signup")}>Signup now</Buzz></div>
       </form>
     </Wrapper>
+    </>
     )
 }; 
 
@@ -40,7 +44,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10em;
+  margin: 1em;
 }
 
 label, button {
@@ -48,8 +52,14 @@ margin: 1em;
 }
 `;
 
+const Button = styled.button`
+background-color: #4691f6;
+border: none;
+color: #f5fbff;
+padding: 10px 25px;
+`
 const Buzz = styled.button`
-background-color: white;
+background-color: #f5fbff;
 border: none;
 
 &:hover{

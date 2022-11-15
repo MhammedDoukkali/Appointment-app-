@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import Calendar from 'react-calendar';
+import styled from 'styled-components';
 
 
 const Times = ({date}) => {
@@ -20,15 +20,29 @@ const displayInfo = (ev) => {
             {availableTime.map(times => {
                 return (
                     <div>
-                        <button onClick={(ev)=> displayInfo(ev)}>{times}</button>
+                        <Button onClick={(ev)=> displayInfo(ev)}>{times}</Button>
                     </div>
                 )
             })}
-            <div>
-      {info ? `Your appointment is set to ${booking} ${date.toDateString()}` : null}
-    </div>
+            <Confirmation>
+      {info ? `Your appointment is confirmed at ${booking} ${date.toDateString()}` : null}
+    </Confirmation>
         </div>
     )
 };
 
 export default Times ; 
+
+const Button =styled.button`
+background-color: #edfafa;
+border:none;
+
+&:hover {
+    background-color: #105b72c2;
+  }
+`;
+
+const Confirmation = styled.div`
+margin:15px; 
+
+`;
