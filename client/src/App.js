@@ -8,8 +8,6 @@ import GlobalStyles from "./GlobalStyles";
 
 
 
-
-
 const App = () => {
   
   
